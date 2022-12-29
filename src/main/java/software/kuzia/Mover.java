@@ -29,26 +29,6 @@ public class Mover {
         return level;
     }
 
-    public int getMoveLine() {
-        if (direction.equals("Up")) {
-            return line - 1;
-        }
-        if (direction.equals("Down")) {
-            return line + 1;
-        }
-        return line;
-    }
-
-    public int getMoveRow() {
-        if (direction.equals("Left")) {
-            return row - 1;
-        }
-        if (direction.equals("Right")) {
-            return row + 1;
-        }
-        return row;
-    }
-
     public void move() {
         switch (direction) {
             case "Right":
@@ -98,5 +78,45 @@ public class Mover {
                 direction = "Left";
                 break;
         }
+    }
+
+    public int getMoveLine() {
+        if (direction.equals("Up")) {
+            return line - 1;
+        }
+        if (direction.equals("Down")) {
+            return line + 1;
+        }
+        return line;
+    }
+
+    public int getMoveRow() {
+        if (direction.equals("Left")) {
+            return row - 1;
+        }
+        if (direction.equals("Right")) {
+            return row + 1;
+        }
+        return row;
+    }
+
+    public int getNextMoveLine() {
+        if (direction.equals("Up")) {
+            return line - 2;
+        }
+        if (direction.equals("Down")) {
+            return line + 2;
+        }
+        return line;
+    }
+
+    public int getNextMoveRow() {
+        if (direction.equals("Left")) {
+            return row - 2;
+        }
+        if (direction.equals("Right")) {
+            return row + 2;
+        }
+        return row;
     }
 }
