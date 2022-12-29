@@ -1,10 +1,10 @@
 package software.kuzia;
 
 public class Radar {
-    String[][] radar;
+    String[][] radar = new String[23][23];
 
-    public Radar(Belt belt, Mover mover) {
-        radar = new String[23][23];
+    public void draw(Belt belt, Mover mover) {
+        // Заполнение.
         int firstLine = mover.getLine();
         int firstRow = mover.getRow();
 
@@ -21,7 +21,6 @@ public class Radar {
                         radar[l][r] = " " + belt.getAsteroid(firstLine + r, firstRow - l) + " ";
                     }
                 }
-
                 break;
             case "Down":
                 radar[0][11] = "180";
@@ -109,9 +108,8 @@ public class Radar {
         }
 
         radar[11][11] = " M ";
-    }
 
-    public void draw() {
+        // Отрисовка.
         for (int l = 0; l < 23; l++) {
             for (int r = 0; r < 23; r++) {
                 System.out.print(radar[l][r]);
