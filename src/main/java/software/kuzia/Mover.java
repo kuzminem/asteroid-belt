@@ -10,7 +10,7 @@ public class Mover {
         this.line = line;
         this.row = row;
         this.direction = "Up";
-        this.level = 1;
+        this.level = 2;
     }
 
     public int getLine() {
@@ -23,10 +23,6 @@ public class Mover {
 
     public String getDirection() {
         return direction;
-    }
-
-    public int getLevel() {
-        return level;
     }
 
     public void move() {
@@ -118,5 +114,15 @@ public class Mover {
             return row + 2;
         }
         return row;
+    }
+
+    public boolean isMoved(char asteroid) {
+        switch (asteroid) {
+            case 'O':
+                return level == 3;
+            case 'o':
+                return level > 1;
+        }
+        return true;
     }
 }
