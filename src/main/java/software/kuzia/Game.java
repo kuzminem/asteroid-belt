@@ -9,7 +9,9 @@ public class Game {
         Radar radar = new Radar();
 
         belt.setAsteroid(belt.getSize() / 2, belt.getSize() / 2, 'X');
+        belt.setAsteroid(48, 47, '.');
         belt.setAsteroid(48, 48, 'o');
+        belt.setAsteroid(48, 49, 'O');
 
         Scanner scanner = new Scanner(System.in);
         String input;
@@ -27,11 +29,11 @@ public class Game {
                     }
                     if (asteroid == '.' || asteroid == 'o' || asteroid == 'O') {
                         char nextAsteroid = belt.getAsteroid(mover.getNextMoveLine(), mover.getNextMoveRow());
-                        if (nextAsteroid == ' ') {
+                        if (nextAsteroid == ' ' && mover.isMoved(asteroid)) {
                             belt.setAsteroid(mover.getNextMoveLine(), mover.getNextMoveRow(), asteroid);
                             belt.setAsteroid(mover.getMoveLine(), mover.getMoveRow(), ' ');
                             mover.move();
-                        } else if (nextAsteroid == 'X') {
+                        } else if (nextAsteroid == 'X' && mover.isMoved(asteroid)) {
                             belt.setAsteroid(mover.getMoveLine(), mover.getMoveRow(), ' ');
                             mover.move();
                         }
